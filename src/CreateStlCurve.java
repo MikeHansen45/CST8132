@@ -9,14 +9,14 @@ import curves.ConeCurve;
 public class CreateStlCurve {
 	private List<List<Point3D>> list;
 
-	public void createMatrix()
+	public void createMatrix(Curve curve1)
 	{
-		Curve coneCurve = new ConeCurve();
-		double ss=coneCurve.getStepSize();
-		double minX = coneCurve.getMinX();
-		double minY = coneCurve.getMinY();
-		double maxX = coneCurve.getMaxX();
-		double maxY = coneCurve.getMaxY();
+		//Curve coneCurve = new ConeCurve();
+		double ss=curve1.getStepSize();
+		double minX = curve1.getMinX();
+		double minY = curve1.getMinY();
+		double maxX = curve1.getMaxX();
+		double maxY = curve1.getMaxY();
 
 		int xSize = (int)((maxX-minX)/ss)+1;
 		int ySize = (int)((maxY-minY)/ss)+1;
@@ -30,7 +30,7 @@ public class CreateStlCurve {
 			xValue=0;
 			for(int x=0; x<xSize; x++)
 			{
-				row.add(new Point3D(xValue,yValue,coneCurve.getZ(xValue+minX, yValue+minY)));
+				row.add(new Point3D(xValue,yValue,curve1.getZ(xValue+minX, yValue+minY)));
 				xValue+=ss;
 			}
 			yValue+=ss;
@@ -59,9 +59,9 @@ public class CreateStlCurve {
 			}
 		}
 		
-		// Create bottom edge
-		//Point3D bottomEdge = new Point3D();
-
+		// Create bottom plane
+		
+		// create a loop through the matrix creating the planes
 		// Create top edge
 		// TODO in lab 5
 
@@ -72,7 +72,7 @@ public class CreateStlCurve {
 		// TODO in lab 5
 
 		// Create base
-		// TODO in lab 5
+		
 
 		
 		return solid;
@@ -90,8 +90,9 @@ public class CreateStlCurve {
 	
 	public static void main(String[] arg)
 	{
+		Curve curveyBum = new ConeCurve();
 		CreateStlCurve curve = new CreateStlCurve();
-		curve.createMatrix();
+		curve.createMatrix(curveyBum);
 		Solid solid = curve.createSolid("ConeCurve");
 		
 		String name = "c:\\temp\\ConeCurve.stl";
