@@ -40,10 +40,14 @@ public class CreateStlCurve {
 	public Solid createSolid(String name)
 	{
 		Solid solid = new Solid(name);
-		
+		List<Point3D> bottomPlane = new ArrayList<Point3D>();// added to create a list of Point3D's for facet creation to make side and bottom planes
+		List<Point3D> topPlane = new ArrayList<Point3D>();
+		List<Point3D> leftPlane = new ArrayList<Point3D>();
+		List<Point3D> rightPlane = new ArrayList<Point3D>();
+		List<Point3D> basePlane = new ArrayList<Point3D>();
 		int width=list.size()-1;
 		int height=list.get(0).size()-1;
-		System.out.println(height);
+		//System.out.println(height);
 
 		// Create curve
 		for(int h=0; h<height; h++)
@@ -59,19 +63,24 @@ public class CreateStlCurve {
 			}
 		}
 		
-		// Create bottom plane
-		
-		// create a loop through the matrix creating the planes
-		// Create top edge
-		// TODO in lab 5
+		for(int x=0; x<height; x++)
+		{
+			for(int y=0; y<width; y++)
+			{
 
-		// Create left edge
-		// TODO in lab 5
+						bottomPlane.add(new Point3D(list.get(x).get(y).getX(),0,list.get(x).get(y).getZ()));//bottomEdge
+						solid.addFacet(new Point3D(list.get(x).get(y).getX(),0,list.get(x).get(y).getZ()));
+						solid.addFacet(new Point3D(list.get(x).get(y).getX(),0,list.get(x).get(y).getZ()));
+						topPlane.add(new Point3D(list.get(x).get(y).getX(),10,list.get(x).get(y).getZ()));//leftPlane
+						leftPlane.add(new Point3D(0,list.get(x).get(y).getX(),list.get(x).get(y).getZ()));
+						rightPlane.add(new Point3D(10,list.get(x).get(y).getX(),list.get(x).get(y).getZ()));
+						basePlane.add(new Point3D(list.get(x).get(y).getX(),list.get(x).get(y).getX(),0));
 
-		// Create right edge
-		// TODO in lab 5
+			}	
+			
+			
+		}
 
-		// Create base
 		
 
 		
