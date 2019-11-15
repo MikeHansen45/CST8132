@@ -65,20 +65,22 @@ public class CreateStlCurve {
 		
 		for(int x=0; x<height; x++)
 		{
-			for(int y=0; y<width; y++)
-			{
-
-						bottomPlane.add(new Point3D(list.get(x).get(y).getX(),0,list.get(x).get(y).getZ()));//bottomEdge
-						solid.addFacet(new Point3D(list.get(x).get(y).getX(),0,list.get(x).get(y).getZ()));
-						solid.addFacet(new Point3D(list.get(x).get(y).getX(),0,list.get(x).get(y).getZ()));
-						topPlane.add(new Point3D(list.get(x).get(y).getX(),10,list.get(x).get(y).getZ()));//leftPlane
-						leftPlane.add(new Point3D(0,list.get(x).get(y).getX(),list.get(x).get(y).getZ()));
-						rightPlane.add(new Point3D(10,list.get(x).get(y).getX(),list.get(x).get(y).getZ()));
-						basePlane.add(new Point3D(list.get(x).get(y).getX(),list.get(x).get(y).getX(),0));
-
-			}	
-			
-			
+			System.out.println(list.get(0).get(x));
+//			for(int y=0; y<width; y++)
+//			{
+//
+//						bottomPlane.add(new Point3D(list.get(x).get(y).getX(),0,list.get(x).get(y).getZ()));//bottomEdge
+//						////solid.addFacet(new Point3D(list.get(x).get(y).getX(),0,list.get(x).get(y).getZ()));
+//						//solid.addFacet(new Point3D(list.get(x).get(y).getX(),0,list.get(x).get(y).getZ()));
+//						topPlane.add(new Point3D(list.get(x).get(y).getX(),10,list.get(x).get(y).getZ()));//leftPlane
+//						leftPlane.add(new Point3D(0,list.get(x).get(y).getX(),list.get(x).get(y).getZ()));
+//						rightPlane.add(new Point3D(10,list.get(x).get(y).getX(),list.get(x).get(y).getZ()));
+//						basePlane.add(new Point3D(list.get(x).get(y).getX(),list.get(x).get(y).getX(),0));
+//
+//			}	
+//			
+//		System.out.println(rightPlane);
+		//break;
 		}
 
 		
